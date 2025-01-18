@@ -5,13 +5,15 @@ import {uploadOnCloudinary} from "../utils/cloudinary.js"
 import {ApiResponse} from "../utils/ApiResponse.js"
 import jwt from "jsonwebtoken"
 
+
+//chatgpt se comment likhva lena
 const generateAccessAndRefreshTokens = async(userId) => {
     try {
          const user = await User.findById(userId)
         const accessToken = user.generateAccessToken()
-        console.log("Access token generated:", accessToken);
+        // console.log("Access token generated:", accessToken);
         const refreshToken = user.generateRefreshToken()
-        console.log("Access token generated:", refreshToken);
+        // console.log("Access token generated:", refreshToken);
 
         user.refreshToken = refreshToken; //save refresh token in db
         await user.save({ validateBeforeSave:false })
